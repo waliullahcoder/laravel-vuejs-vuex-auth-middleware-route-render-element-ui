@@ -4348,6 +4348,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Menubar",
   computed: {
@@ -6043,7 +6044,34 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      allusers: {}
+    };
+  },
+  methods: {
+    userLoader: function userLoader() {
+      var _this = this;
+
+      //console.log()
+      axios.get("/user/list").then(function (_ref) {
+        var data = _ref.data;
+        return _this.allusers = data;
+      });
+    }
+  },
+  created: function created() {
+    this.userLoader();
+  },
   mounted: function mounted() {
     console.log('Component mounted.');
   }
@@ -111089,39 +111117,67 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "wrap_title  des_title_2" }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _vm._m(1),
+    _vm._v(" "),
+    _c("span", { staticClass: "section-subtitle db tc sub-title" }, [
+      _vm._v("Here")
+    ]),
+    _vm._v(" "),
+    _c(
+      "table",
+      { staticClass: "table table-bordered" },
+      [
+        _vm._m(2),
+        _vm._v(" "),
+        _vm._l(_vm.allusers, function(us) {
+          return _c("tr", { key: us.id }, [
+            _c("td", [_vm._v(_vm._s(us.id) + "}")]),
+            _c("td", [_vm._v(_vm._s(us.name))])
+          ])
+        })
+      ],
+      2
+    )
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "wrap_title  des_title_2" }, [
-      _c(
-        "h3",
-        {
-          staticClass:
-            "section-title tc pr flex fl_center al_center fs__24 title_2"
-        },
-        [
-          _c("span", { staticClass: "mr__10 ml__10" }, [
-            _vm._v("User Dashboard")
-          ])
-        ]
-      ),
+    return _c(
+      "h3",
+      {
+        staticClass:
+          "section-title tc pr flex fl_center al_center fs__24 title_2"
+      },
+      [
+        _c("span", { staticClass: "mr__10 ml__10" }, [
+          _vm._v("User Dashboard  ")
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("span", { staticClass: "dn tt_divider" }, [
+      _c("span"),
       _vm._v(" "),
-      _c("span", { staticClass: "dn tt_divider" }, [
-        _c("span"),
-        _vm._v(" "),
-        _c("i", { staticClass: "dn clprfalse title_2 la-gem" }),
-        _vm._v(" "),
-        _c("span")
-      ]),
+      _c("i", { staticClass: "dn clprfalse title_2 la-gem" }),
       _vm._v(" "),
-      _c("span", { staticClass: "section-subtitle db tc sub-title" }, [
-        _vm._v("Here")
-      ])
+      _c("span")
     ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("tr", [_c("th", [_vm._v("ID")]), _c("th", [_vm._v("Name")])])
   }
 ]
 render._withStripped = true

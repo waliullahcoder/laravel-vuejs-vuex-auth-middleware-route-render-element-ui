@@ -23,6 +23,7 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/user', 'App\Http\Controllers\HomeController@user');
+Route::get('/user/list', 'App\Http\Controllers\HomeController@userList');
 Route::get('/{path}', function(){
     return view('welcome');
 

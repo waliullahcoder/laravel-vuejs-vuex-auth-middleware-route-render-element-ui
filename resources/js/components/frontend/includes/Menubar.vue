@@ -68,6 +68,7 @@
                                         <li class="type_dropdown menu-item has-children menu_has_offsets menu_right pos_right">
                                             <a class="lh__1 flex al_center" href="/"><i class="iccl iccl-user"></i></a> {{ user.name }}</a>
                                             <div class="sub-menu">
+                                               
                                                 <div v-if="user && user.id" class="lazy_menu lazyload">
                                                     <div class="menu-item">
                                                         <router-link to="/dashboard">Dashboard</router-link>
